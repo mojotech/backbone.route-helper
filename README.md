@@ -17,9 +17,9 @@ Given the router:
 You can generate URL's for the routes with the following code:
 
 ```coffeescript
-  Routes.todo.index() == '/todos'
-  Routes.todo.show() == '/todos/new'
-  Routes.todo.show(1) == '/todos/1'
+  Routes.todo.indexPath() == '/todos'
+  Routes.todo.showPath() == '/todos/new'
+  Routes.todo.showPath(1) == '/todos/1'
 ```
 
 Just include the library after backbone but before instantiating any routers, it will patch `Backbone.Router`.
