@@ -22,5 +22,7 @@ You can generate URL's for the routes with the following code:
   Routes.todo.show(1) == '/todos/1'
 ```
 
+Just include the library after backbone but before instantiating any routers, it will patch `Backbone.Router`.
+
 
 Inspired by [backbone-named-routes](https://github.com/drtangible/backbone-named-routes)
