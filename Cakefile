@@ -6,4 +6,4 @@ task 'build', 'compiles to source', ->
   console.log 'Compiling source'
   source = fs.readFileSync(__dirname + '/backbone.route-helper.coffee', 'utf8')
   compiled = cs.compile(source)
-  fs.writeFileSync(__dirname + '/backbone.route-helper.js', uglify.minify(compiled, {fromString: 1}).code)
+  fs.writeFileSync(__dirname + '/backbone.route-helper.min.js', uglify.minify(compiled, {fromString: 1}).code)
