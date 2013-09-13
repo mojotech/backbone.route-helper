@@ -14,6 +14,7 @@
     "backbone": "~1.0.0"
   },
   "devDependencies": {
-    "coffee-script": "latest"
+    "coffee-script": "latest",
+    "uglify-js": "latest"
   }
 }
