@@ -1,0 +1,19 @@
+{
+  "name": "backbone.route-helper",
+  "version": "0.0.1",
+  "description": "Rails style route helper methods",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mojotech/backbone.route-helper.git"
+  },
+  "author": "MojoTech / Paul Tyng",
+  "bugs": {
+    "url": "https://github.com/mojotech/backbone.route-helper/issues"
+  },
+  "dependencies": {
+    "backbone": "~1.0.0"
+  },
+  "devDependencies": {
+    "coffee-script": "latest"
+  }
+}
