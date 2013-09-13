@@ -11,10 +11,16 @@
     "url": "https://github.com/mojotech/backbone.route-helper/issues"
   },
   "dependencies": {
-    "backbone": "~1.0.0"
+    "backbone": "~1.0.0",
+    "underscore": "~1.5.2"
+  },
+  "scripts": {
+    "test": "mocha"
   },
   "devDependencies": {
     "coffee-script": "latest",
-    "uglify-js": "latest"
+    "uglify-js": "latest",
+    "mocha": "~1.12.1",
+    "should": "~1.2.2"
   }
 }
