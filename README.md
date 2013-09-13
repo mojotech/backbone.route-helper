@@ -4,7 +4,7 @@ Add rails style methods for your backbone and marionette routes.
 
 Given the router:
 
-```
+```coffeescript
   class TodoRouter extends Backbone.Router
     routes: 
       "todos": "index"
@@ -16,7 +16,7 @@ Given the router:
 
 You can generate URL's for the routes with the following code:
 
-```
+```coffeescript
   Routes.todo.index() == '/todos'
   Routes.todo.show() == '/todos/new'
   Routes.todo.show(1) == '/todos/1'
