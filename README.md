@@ -7,9 +7,9 @@ Given the router:
 ```coffeescript
   class TodoRouter extends Backbone.Router
     routes: 
-      "todos": "index"
       "todos/new": "show"
       "todos/:id": "show"
+      "todos": "index"
       
   window.Routes.todo = new TodoRouter()
 ```
