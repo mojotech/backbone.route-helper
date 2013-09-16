@@ -1,7 +1,7 @@
 do (Backbone, _) ->
   addRoute = (name, route, options = {}) ->
     _.defaults options,
-      includeRoot: false
+      includeRoot: true
 
     # Create key to store path patterns for this route name.
     @_patterns = @_patterns or {}
