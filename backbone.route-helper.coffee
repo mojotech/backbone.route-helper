@@ -53,13 +53,9 @@ do (Backbone, _) ->
     filteredObject = {}
 
     for k,v of object
-      filteredObject[k] = value if has(object, k) and value?
+      filteredObject[k] = value if _.has(object, k) and value?
 
     filteredObject
-
-  # cache reference to `Object.prototype.hasOwnProperty`
-  hasOwnProperty = Object::hasOwnProperty
-  has = (object, key) -> hasOwnProperty.call(object, key)
 
   # store original _bindRoutes method for later
   originalRoute = Backbone.Router::route
