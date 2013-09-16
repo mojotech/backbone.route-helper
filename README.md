@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mojotech/backbone.route-helper.png)](https://travis-ci.org/mojotech/backbone.route-helper)
+
 ## Backbone Route Helper
 
 Add rails style methods for your backbone and marionette routes.
