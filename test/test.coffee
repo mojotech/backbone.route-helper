@@ -2,7 +2,7 @@ should = require 'should'
 global._ = require 'underscore'
 global.Backbone = require 'backbone'
 require '../backbone.route-helper.coffee'
-#global.Marionette =
+global.Marionette = require 'backbone.marionette'
 
 describe 'Backbone Route Helper', ->
   describe 'Backbone.Router', ->
@@ -11,9 +11,26 @@ describe 'Backbone Route Helper', ->
     beforeEach ->
       class TodoRouter extends Backbone.Router
         routes:
-          "todos/new": "show"
-          "todos/:id": "show"
-          "todos": "index"
+          'todos/new': 'show'
+          'todos/:id': 'show'
+          'todos': 'index'
+
+      todo = new TodoRouter()
+
+    it 'works', ->
+      todo.showPath().should.eql('/todos/new')
+      todo.showPath(1).should.eql('/todos/1')
+      todo.indexPath().should.eql('/todos')
+
+  describe 'Marionette.AppRouter', ->
+    todo = null
+
+    beforeEach ->
+      class TodoRouter extends Marionette.AppRouter
+        routes:
+          'todos/new': 'show'
+          'todos/:id': 'show'
+          'todos': 'index'
 
       todo = new TodoRouter()
 

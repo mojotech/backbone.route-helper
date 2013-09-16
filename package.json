@@ -21,6 +21,7 @@
     "coffee-script": "latest",
     "uglify-js": "latest",
     "mocha": "~1.12.1",
-    "should": "~1.2.2"
+    "should": "~1.2.2",
+    "backbone.marionette": "~1.1.0"
   }
 }
