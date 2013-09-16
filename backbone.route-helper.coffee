@@ -10,12 +10,12 @@ do (Backbone, _) ->
 
     # Store the route pattern for the combination of this route name and the
     # number of path params defined in the pattern.
-    numberOfParams = if route.match(/\:\w+/g) then route.match(/\:\w+/g).length else 0
+    numberOfParams = route.match(/\:\w+/g)?.length or 0
     data[numberOfParams] = route
 
     # Create the named route helper method for this route name.
     @[name + 'Path'] = ->
-      args = Array.prototype.slice.call(arguments)
+      args = Array::slice.call(arguments)
       hasQueryParams = _(args[args.length-1]).isObject()
       numberOfParams = if hasQueryParams then arguments.length - 1 else arguments.length
       routePattern = data[numberOfParams]
@@ -28,8 +28,7 @@ do (Backbone, _) ->
   prependRoot = (route) ->
     history = Backbone.history
 
-    #if (!history || !history.options || history.options.root == "/") return route;
-    return route if not history? or not history.options? or history.options.root is '/'
+    return route if (history?.options?.root or '/') is '/'
 
     routeWithRoot = history.options.root + '/' + route
     routeWithRoot.replace('//', '/')
@@ -37,13 +36,11 @@ do (Backbone, _) ->
   pathFor = (pathPattern, urlParams, queryParams) ->
     path = pathPattern
     path = '/' + path if path.charAt(0) isnt '/'
-
-    for param in urlParams
-      path = path.replace(/\:\w+/, param)
+    path = path.replace(/\:\w+/, param) for param in urlParams
 
     filteredQueryParams = filterObject(queryParams)
 
-    if filteredQueryParams and not _.isEmpty(filteredQueryParams)
+    unless _.isEmpty(filteredQueryParams)
       path += "?" + $.param(filteredQueryParams)
 
     path
