@@ -49,8 +49,7 @@ do (Backbone, _) ->
   filterObject = (object) ->
     filteredObject = {}
 
-    for k,v of object
-      filteredObject[k] = value if _.has(object, k) and value?
+    filteredObject[k] = v for k,v of object when _.has(object, k) and v?
 
     filteredObject
 
