@@ -4,9 +4,8 @@ do (Backbone, _) ->
       includeRoot: true
 
     # Create key to store path patterns for this route name.
-    @_patterns = @_patterns or {}
-    data = @_patterns[name] or {}
-    @_patterns[name] = data
+    @_patterns ?= {}
+    data = @_patterns[name] ?= {}
 
     # Store the route pattern for the combination of this route name and the
     # number of path params defined in the pattern.
