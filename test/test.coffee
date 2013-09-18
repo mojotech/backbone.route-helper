@@ -1,4 +1,5 @@
 should = require 'should'
+global.$ = require 'jquery'
 global._ = require 'underscore'
 global.Backbone = require 'backbone'
 require '../backbone.route-helper.coffee'
@@ -37,6 +38,9 @@ describe 'Backbone Route Helper', ->
       todo.showPath(1).should.eql('/test/todos/1')
       todo.indexPath().should.eql('/test/todos')
 
+    it 'handles query string', ->
+      todo.indexPath(sort: 'asc').should.eql('/todos?sort=asc')
+
   describe 'Marionette.AppRouter', ->
     todo = null
 
@@ -51,3 +55,6 @@ describe 'Backbone Route Helper', ->
       todo.showCommentPath(2, 3).should.eql('/todos/2/comments/3')
       todo.showPath(1).should.eql('/todos/1')
       todo.indexPath().should.eql('/todos')
+
+    it 'handles query string', ->
+      todo.indexPath(sort: 'asc').should.eql('/todos?sort=asc')
