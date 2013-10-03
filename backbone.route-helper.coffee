@@ -1,5 +1,7 @@
 do (Backbone, _) ->
   addRoute = (name, route, options = {}) ->
+    return if _.isRegExp(route) or _.isFunction(name)
+
     _.defaults options,
       includeRoot: true
 
@@ -11,6 +13,8 @@ do (Backbone, _) ->
     # number of path params defined in the pattern.
     numberOfParams = route.match(/\:\w+/g)?.length or 0
     data[numberOfParams] = route
+
+    return if @[name + 'Path']?
 
     # Create the named route helper method for this route name.
     @[name + 'Path'] = ->
