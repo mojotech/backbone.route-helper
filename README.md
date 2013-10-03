@@ -21,12 +21,30 @@ Given the router:
 You can generate URL's for the routes with the following code:
 
 ```coffeescript
-  Routes.todo.indexPath() == '/todos'
-  Routes.todo.showPath() == '/todos/new'
-  Routes.todo.showPath(1) == '/todos/1'
+  Routes.todo.indexPath() is '/todos'
+  Routes.todo.showPath() is '/todos/new'
+  Routes.todo.showPath(1) is '/todos/1'
 ```
 
+You can manually override path generation in your router as well:
+
+```coffeescript
+  class TodoRouter extends Backbone.Router
+    routes:
+      "todos": "index"
+      
+    indexPath: -> "/some-other-url"
+  
+  router = new TodoRouter()
+  
+  router.indexPath() is '/some-other-url'
+```
+
+### Usage / Installation
+
 Just include the library after backbone but before instantiating any routers, it will patch `Backbone.Router`.
+
+### Notes
 
 If two routes share the same route name and arity, the library will be unable to determine which is canonical since javascript object property order is not guarunteed.  If you run in to this issue, you can call the route method outside of the hash in specific order, and the last encountered value will be considered canonical.
 
