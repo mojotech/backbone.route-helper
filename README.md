@@ -2,17 +2,19 @@
 
 ## Backbone and Marionette Route Helper
 
-Add rails style methods for your backbone and marionette routes.
+Add helper methods for your backbone and marionette routes.
+
+This works only for the simple cases of routes with string action names that can be differentiated by action name and arity.  If you would like to provide custom path generation you can simply define the same method on the router manually.
 
 Given the router:
 
 ```coffeescript
   class TodoRouter extends Backbone.Router
-    routes: 
+    routes:
       "todos/new": "show"
       "todos/:id": "show"
       "todos": "index"
-      
+
   window.Routes.todo = new TodoRouter()
 ```
 
@@ -26,5 +28,6 @@ You can generate URL's for the routes with the following code:
 
 Just include the library after backbone but before instantiating any routers, it will patch `Backbone.Router`.
 
+If two routes share the same route name and arity, the library will be unable to determine which is canonical since javascript object property order is not guarunteed.  If you run in to this issue, you can call the route method outside of the hash in specific order, and the last encountered value will be considered canonical.
 
 Inspired by [backbone-named-routes](https://github.com/drtangible/backbone-named-routes)
