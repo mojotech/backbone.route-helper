@@ -1,4 +1,4 @@
-do (Backbone, _) ->
+define ['backbone', 'underscore'], (Backbone, _) ->
   addRoute = (name, route, options = {}) ->
     return if _.isRegExp(route) or _.isFunction(name)
 
